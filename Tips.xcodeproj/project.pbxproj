@@ -15,6 +15,10 @@
 		91ED47F11C1EBE04009D47E7 /* TipsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91ED47F01C1EBE04009D47E7 /* TipsTests.swift */; };
 		91ED47FC1C1EBE04009D47E7 /* TipsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91ED47FB1C1EBE04009D47E7 /* TipsUITests.swift */; };
 		91EDBDC41C1F9C1B0047DE27 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EDBDC31C1F9C1B0047DE27 /* SettingsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		91EDBDC61C1FDE3F0047DE27 /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EDBDC51C1FDE3F0047DE27 /* CustomViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		91EDBDC81C1FFE000047DE27 /* moneyTextDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EDBDC71C1FFE000047DE27 /* moneyTextDelegate.swift */; settings = {ASSET_TAGS = (); }; };
+		91EDBDCA1C200F730047DE27 /* customTipDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EDBDC91C200F730047DE27 /* customTipDelegate.swift */; settings = {ASSET_TAGS = (); }; };
+		91EDBDCC1C2037020047DE27 /* emailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EDBDCB1C2037020047DE27 /* emailViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		91ED47FB1C1EBE04009D47E7 /* TipsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsUITests.swift; sourceTree = "<group>"; };
 		91ED47FD1C1EBE04009D47E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91EDBDC31C1F9C1B0047DE27 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ../SettingsViewController.swift; sourceTree = "<group>"; };
+		91EDBDC51C1FDE3F0047DE27 /* CustomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
+		91EDBDC71C1FFE000047DE27 /* moneyTextDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = moneyTextDelegate.swift; sourceTree = "<group>"; };
+		91EDBDC91C200F730047DE27 /* customTipDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customTipDelegate.swift; sourceTree = "<group>"; };
+		91EDBDCB1C2037020047DE27 /* emailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = emailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +107,14 @@
 		91ED47DA1C1EBE03009D47E7 /* Tips */ = {
 			isa = PBXGroup;
 			children = (
+				91EDBDC51C1FDE3F0047DE27 /* CustomViewController.swift */,
 				91EDBDC31C1F9C1B0047DE27 /* SettingsViewController.swift */,
 				91ED47DB1C1EBE03009D47E7 /* AppDelegate.swift */,
 				91ED47DD1C1EBE03009D47E7 /* ViewController.swift */,
+				91EDBDC71C1FFE000047DE27 /* moneyTextDelegate.swift */,
+				91EDBDC91C200F730047DE27 /* customTipDelegate.swift */,
 				91ED47DF1C1EBE04009D47E7 /* Main.storyboard */,
+				91EDBDCB1C2037020047DE27 /* emailViewController.swift */,
 				91ED47E21C1EBE04009D47E7 /* Assets.xcassets */,
 				91ED47E41C1EBE04009D47E7 /* LaunchScreen.storyboard */,
 				91ED47E71C1EBE04009D47E7 /* Info.plist */,
@@ -195,6 +207,7 @@
 				TargetAttributes = {
 					91ED47D71C1EBE03009D47E7 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = FD8ZCG5BFR;
 					};
 					91ED47EB1C1EBE04009D47E7 = {
 						CreatedOnToolsVersion = 7.0;
@@ -259,8 +272,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				91ED47DE1C1EBE03009D47E7 /* ViewController.swift in Sources */,
+				91EDBDCA1C200F730047DE27 /* customTipDelegate.swift in Sources */,
 				91ED47DC1C1EBE03009D47E7 /* AppDelegate.swift in Sources */,
 				91EDBDC41C1F9C1B0047DE27 /* SettingsViewController.swift in Sources */,
+				91EDBDC81C1FFE000047DE27 /* moneyTextDelegate.swift in Sources */,
+				91EDBDCC1C2037020047DE27 /* emailViewController.swift in Sources */,
+				91EDBDC61C1FDE3F0047DE27 /* CustomViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,10 +417,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Tips/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = CCSF.Tips;
+				PRODUCT_BUNDLE_IDENTIFIER = Zhi.Tips;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -411,10 +432,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Tips/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = CCSF.Tips;
+				PRODUCT_BUNDLE_IDENTIFIER = Zhi.Tips;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

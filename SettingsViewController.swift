@@ -8,38 +8,51 @@
 
 import UIKit
 
+protocol TipDelegate{
+    func customTip(newTip:Double)
+    
+    func selection(option: Int) //Leaving parameter for possible expansions
+}
+
 class SettingsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-   struct Keys{ //the static is so we can use the instance of this struct without creating one
+   var delegate: TipDelegate? = nil
+    
+   struct Keys{
         static let Name = "Name"
         static let Description = "Description"
     }
-    
-    /*
-    //let animalNames = ["Snake", "Racoon", "Penguin", "Other animal names"]
-    var colorDictionaries: [[String : AnyObject]] = [
-        [Keys.Name: "Red", Keys.Description: "Color of Fire!", Keys.Color: UIColor.redColor()],
-        [Keys.Name: "Blue", Keys.Description: "Color of Water!", Keys.Color: UIColor.blueColor()],
-        [Keys.Name: "Green", Keys.Description: "Color of Green!", Keys.Color: UIColor.greenColor()],
-        [Keys.Name: "Orange", Keys.Description: "Color of the sun!", Keys.Color: UIColor.orangeColor()],
-        [Keys.Name: "Yellow", Keys.Description: "Color of lemons!", Keys.Color: UIColor.yellowColor()]
-    ]
-*/
+
+    /* Dictionary for our table cells*/
     var tipDictionary: [[String : AnyObject]] = [
-        [Keys.Name: "Tip #1", Keys.Description: ""],
-        [Keys.Name: "Tip #2", Keys.Description: ""],
-        [Keys.Name: "Tip #3", Keys.Description: ""]
+        [Keys.Name: "viewDidLoad() did not get called", Keys.Description: ""]
     ]
+    var tip1: String = ""
+    var tip2: String = ""
+    var tip3: String = ""
+    
     
     override func viewDidLoad() {
+
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        /* Create a custom back button so we can have delegation interaction*/
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "Save & Back", style: UIBarButtonItemStyle.Done, target: self, action: "back:")
+        self.navigationItem.leftBarButtonItem = newBackButton;
+        /* Populate our dictionary with information we receive from our VC */
+        tipDictionary =  [
+            [Keys.Name: "Tip #1", Keys.Description: tip1],
+            [Keys.Name: "Tip #2", Keys.Description: tip2],
+            [Keys.Name: "Tip #3", Keys.Description: tip3],
+            [Keys.Name: "Custom", Keys.Description: "Click here to customize a tip value"]
+        ]
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCellWithIdentifier("MyCell")! //as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("MyCell")! 
         let dictionary = tipDictionary[indexPath.row]
         
         cell.textLabel!.text = dictionary[Keys.Name] as? String
@@ -52,33 +65,64 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Edit Tips"
+        return "Choose Default Tip or Customize Your Own"
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int { //# of rows
-        //return animalNames.count
         
-        return 3
+        return tipDictionary.count
         
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-    /*
+
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    print("Selected row \(indexPath.row)")
-    
-    colorDictionaries.removeAtIndex(indexPath.row)
-    
-    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
-    }*/
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        /*print("Selected row \(indexPath.row)")
-        colorDictionaries.removeAtIndex(indexPath.row)
+
         
-        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)*/
+        /* First 3 , noncustomized rows selected */
+        if( indexPath.row < 3){
+            let defaults = NSUserDefaults.standardUserDefaults()
+            defaults.setInteger(indexPath.row, forKey: "selected")
+            defaults.synchronize()
+
+        }
+        else{
+            /* We still follow normal logic and set int to 3 so we know if user set a custom value */
+            let defaults = NSUserDefaults.standardUserDefaults()
+            defaults.setInteger(3, forKey: "selected")
+            defaults.synchronize()
+            
+            /*Segway to 3rd VC */
+            performSegueWithIdentifier("cusSeg", sender: self)
+
+            
+        }
+    }
+    
+    
+    func back(sender: UIBarButtonItem) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let optionSelect = defaults.integerForKey("selected")
+        if(optionSelect == 3){
+            if (delegate != nil){
+                let cusTip = defaults.doubleForKey("customTip")
+                
+                /* Set the default selection to the last one now */
+                defaults.setInteger(2, forKey: "selected")
+                delegate!.customTip(cusTip)
+            }
+        }
+        else if(optionSelect < 3){
+            if(delegate != nil){
+                delegate!.selection(optionSelect)
+            }
+        }
+        else{
+            print("else block called, nothing fancy should happen")
+        }
+        self.navigationController?.popViewControllerAnimated(true)
     }
 
-    
 }
