@@ -23,6 +23,11 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         static let Description = "Description"
     }
 
+    /* Settings dictionary (for expansion) */
+    /*var sections = [
+        "Choose Default Tip or Customize Your Own"
+    ]*/
+    
     /* Dictionary for our table cells*/
     var tipDictionary: [[String : AnyObject]] = [
         [Keys.Name: "viewDidLoad() did not get called", Keys.Description: ""]

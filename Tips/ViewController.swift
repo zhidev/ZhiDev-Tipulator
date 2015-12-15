@@ -65,10 +65,10 @@ class ViewController: UIViewController,  TipDelegate{
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+
+
         if segue.identifier == "settingSeque"{
             let controller = segue.destinationViewController as! SettingsViewController
-
             /* Pass in tip values so our settings knows about it*/
             var passIn: Double = tip1 * 100
             controller.tip1 = String( "\(passIn)%")
@@ -79,11 +79,11 @@ class ViewController: UIViewController,  TipDelegate{
             
             /* Make our delegate */
             controller.delegate = self
+            controller.viewDidLoad()
         }
         
         if segue.identifier == "emailSegue"{
             let controller = segue.destinationViewController as! emailViewController
-            
             let defaults = NSUserDefaults.standardUserDefaults()
             let select = defaults.integerForKey("selected")
             /* Pass in string values for our email*/
