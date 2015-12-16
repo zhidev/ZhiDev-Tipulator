@@ -1,6 +1,6 @@
 //
 //  customTipDelegate.swift
-//  Zhi's Tips
+//   Tips
 //
 //  Created by Douglas on 12/15/15.
 //  Copyright © 2015 Dougli. All rights reserved.
