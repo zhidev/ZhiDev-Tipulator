@@ -51,7 +51,7 @@
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YsD-wf-hOi">
                                 <rect key="frame" x="12" y="288" width="288" height="21"/>
-                                <color key="backgroundColor" red="0.1932622384299677" green="0.1087444719993543" blue="0.055204916110524554" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="9" y="288" width="374" height="21"/>
                                 </variation>
@@ -155,6 +155,7 @@
                         <outlet property="tipControl" destination="Z2M-UA-kCh" id="4RN-jK-1oW"/>
                         <outlet property="tipLabel" destination="TCw-s5-REd" id="dwY-5f-YO7"/>
                         <outlet property="totalLabel" destination="rhG-gH-5WH" id="P3b-Vi-2uk"/>
+                        <outlet property="viewBar" destination="YsD-wf-hOi" id="rE3-Qr-OIV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
