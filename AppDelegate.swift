@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//   Tips
+//   aTips
 //
 //  Created by Douglas on 12/14/15.
 //  Copyright © 2015 Dougli. All rights reserved.
