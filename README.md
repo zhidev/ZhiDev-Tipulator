@@ -1,5 +1,6 @@
 # ZhiDev-Tipulator
 # Pre-work - Tipulator
+==IGNORE THE EXTRA SWIFT FILES OUTSIDE. Im afraid i'll make everything explode again if i try to fix it so I'm leaving them there==
 
 Tipulator is a tip calculator application for iOS.
 
@@ -45,7 +46,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-- The biggest challenge thus far( and currently still attempting) is making the github receive my most recent commits.
+- The biggest challenge is definitely making the github receive my most recent commits. I'm still not completely sure how I got it to work
 
 - The second biggest hurdle was getting my money formatter to work for billAmounts since i required the UITextField function of shouldChangeCharactersInRange
 to return true and my method returns false to fire off the edittingChanged event and I had to make adjustments. Overthought the solution
