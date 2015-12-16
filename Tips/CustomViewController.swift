@@ -21,7 +21,11 @@ class CustomViewController: UIViewController {
         custAmount.delegate = textDelegate
 
     }
-
+    override func viewWillAppear(animated: Bool) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let colors = defaults.integerForKey("colors")
+        themeChange(colors)
+    }
 
     @IBAction func saveExit(sender: AnyObject) {
         /* Get our custom tip % , P for percent haha... ha */
@@ -35,5 +39,14 @@ class CustomViewController: UIViewController {
     }
     
 
-
+    func themeChange(value: Int){
+        if(value == 0){
+            self.view.backgroundColor = UIColor.cyanColor()
+        }
+        else if (value == 1){
+            self.view.backgroundColor = UIColor.blackColor()
+            
+        }
+        
+    }
 }

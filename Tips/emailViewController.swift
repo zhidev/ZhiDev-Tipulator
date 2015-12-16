@@ -38,7 +38,11 @@ class emailViewController: UIViewController, MFMailComposeViewControllerDelegate
         subject.text = createSubject()
         
     }
-
+    override func viewWillAppear(animated: Bool) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let colors = defaults.integerForKey("colors")
+        themeChange(colors)
+    }
     
     @IBAction func sendMail(sender: AnyObject) {
         let picker = MFMailComposeViewController()
@@ -90,5 +94,15 @@ class emailViewController: UIViewController, MFMailComposeViewControllerDelegate
         
         return subject
     }
-
+    func themeChange(value: Int){
+        if(value == 0){
+            self.view.backgroundColor = UIColor.cyanColor()
+            self.body.textColor = UIColor.blackColor()
+        }
+        else if (value == 1){
+            self.view.backgroundColor = UIColor.blackColor()
+            self.body.textColor = UIColor.whiteColor()
+            
+        }
+    }
 }

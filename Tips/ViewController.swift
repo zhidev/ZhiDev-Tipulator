@@ -15,6 +15,7 @@ class ViewController: UIViewController,  TipDelegate{
     @IBOutlet var totalLabel: UILabel!
     @IBOutlet var tipControl: UISegmentedControl!
     
+    @IBOutlet var viewBar: UIView!
     var tip1:Double = 0.18
     var tip2:Double = 0.2
     var tip3:Double = 0.22
@@ -35,16 +36,20 @@ class ViewController: UIViewController,  TipDelegate{
         let select = defaults.integerForKey("selected")
         tipControl.selectedSegmentIndex = select
         
-        let custV = defaults.doubleForKey("customTip") * 100
+        let custV = defaults.doubleForKey("customTip") //* 100
         if(custV > 0.0 ){
             tip3 = custV
-            tipControl.setTitle( "\(custV)%", forSegmentAtIndex: 2)
+            tipControl.setTitle( "\(custV*100)%", forSegmentAtIndex: 2)
         }
         
         tipPercentages = [tip1, tip2, tip3]
 
     }
-
+    override func viewWillAppear(animated: Bool) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let colors = defaults.integerForKey("colors")
+        themeChange(colors)
+    }
     @IBAction func onEditingChanged(sender: AnyObject) {
         let tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
         var StoDouble = billField.text!
@@ -109,5 +114,16 @@ class ViewController: UIViewController,  TipDelegate{
         viewDidLoad()
     }
 
+    func themeChange(value: Int){
+        if(value == 0){
+            self.view.backgroundColor = UIColor.cyanColor()
+            self.viewBar.backgroundColor = UIColor.blackColor()
+        }
+        else if (value == 1){
+            self.view.backgroundColor = UIColor.blackColor()
+            self.viewBar.backgroundColor = UIColor.whiteColor()
+            
+        }
+    }
 }
 
