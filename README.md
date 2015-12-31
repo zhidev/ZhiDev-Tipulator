@@ -36,9 +36,8 @@ value entered keeps format of $x.xx or $x.xx)
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
-<blockquote class="imgur-embed-pub" lang="en" data-id="gCXof50"><a href="//imgur.com/gCXof50">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
-http://i.imgur.com/gCXof50.gif
-<img src='i.imgur.com/gCXof50' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+<img src='http://i.imgur.com/gCXof50.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 http://imgur.com/gCXof50
 Since the video walkthrough doesn't appear to be working
