@@ -37,7 +37,9 @@ value entered keeps format of $x.xx or $x.xx)
 
 Here's a walkthrough of implemented user stories:
 http://imgur.com/gCXof50
-<img src='http://imgur.com/gCXof50' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+http://i.imgur.com/gCXof50.gif
+
+<img src='http://i.imgur.com/gCXof50' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 http://imgur.com/gCXof50
 Since the video walkthrough doesn't appear to be working
